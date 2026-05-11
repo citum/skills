@@ -86,14 +86,21 @@ Do NOT present as final unless schema AND CLI both pass, or user accepts unverif
 - Flag uncertainty when schema support for a requested feature is unknown
 - Prefer minimal valid changes when editing an existing style
 
-## CLI Validation (in-repo)
+## CLI Validation
 
+**In-repo:** the binary is already built. Run:
 ```bash
 citum render refs -b tests/fixtures/references-expanded.json -s <your-style.yaml>
 ```
 
-If it fails, report the error and iterate the repair loop. If no CLI access, produce the
-draft, report schema status, clearly label as unverified, and recommend local validation.
+**External (CLI installed):** install from source while crates.io publishing is pending:
+```bash
+cargo install --git https://github.com/citum-org/citum-core citum-cli
+```
+Then validate against your own reference fixture.
+
+**No CLI access:** produce the draft, report schema status, clearly label as unverified,
+and recommend the user validate locally.
 
 ## Inheritance and Composition
 
