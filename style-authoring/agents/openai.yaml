@@ -1,0 +1,4 @@
+interface:
+  display_name: "Style Authoring"
+  short_description: "Author and validate Citum style YAML"
+  default_prompt: "Help me author a Citum citation style following the schema-first validation workflow."
