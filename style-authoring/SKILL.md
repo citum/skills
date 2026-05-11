@@ -39,7 +39,7 @@ Schema URL: `https://docs.citum.org/schemas/style.json`
 1. **Read types:** Scan `crates/citum-schema-style/src/` for the relevant structs/enums.
    Build your mental model from Rust — don't guess field names.
 2. **Read examples:** Find the closest match in `styles/*.yaml` and extend it.
-3. **Draft:** Create YAML using documented patterns. Set `inherit:` to a parent when appropriate.
+3. **Draft:** Create YAML using documented patterns. Set `extends:` to a parent when appropriate.
 4. **CLI validate:** `citum render refs -b tests/fixtures/references-expanded.json -s <style.yaml>`
 5. **Revise** until render passes.
 6. **Return** YAML, assumptions, and CLI status.
@@ -105,9 +105,9 @@ and recommend the user validate locally.
 ## Inheritance and Composition
 
 - Extend existing styles before writing from scratch
-- Set `inherit: <parent-style>` and override only what differs
+- Set `extends: <parent-style>` and override only what differs; accepts either a named `StyleBase` slug or a URI (`file://`, `https://`, `git+https://`, `cid:`)
 - Keep overrides minimal and localized
-- Common parents: `apa-7th`, `chicago-author-date-18th`, `ieee`, `mla` — fetch from [styles/ on GitHub](https://github.com/citum-org/citum-core/tree/main/styles/) if not in-repo
+- Common parents: `apa-7th`, `chicago-author-date-18th`, `ieee`, `modern-language-association` — fetch from [styles/ on GitHub](https://github.com/citum-org/citum-core/tree/main/styles/) if not in-repo
 
 ## Failure Handling
 
@@ -125,13 +125,13 @@ and recommend the user validate locally.
 
 **Create a numeric style (in-repo):**
 1. Read `crates/citum-schema-style/src/options/` for numeric processing options
-2. Extend `ieee` or `vancouver` from local `styles/`
+2. Extend `ieee` or `elsevier-vancouver` from local `styles/`
 3. CLI validate; return YAML + assumptions
 
 **Extend a style (external):**
 1. Fetch `https://docs.citum.org/schemas/style.json`; read description fields for allowed fields
 2. Fetch the closest parent style from [styles/ on GitHub](https://github.com/citum-org/citum-core/tree/main/styles/)
-3. Draft with `inherit:` + minimal overrides; schema-validate; return with unverified note
+3. Draft with `extends:` + minimal overrides; schema-validate; return with unverified note
 
 **Patch a behavior:**
 1. Identify the controlling field(s) from the schema descriptions or Rust types if in-repo
