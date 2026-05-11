@@ -30,7 +30,7 @@ validation pass, or the user explicitly accepts an unverified draft.
 | Behavioral patterns | `styles/*.yaml` examples | `styles/*.yaml` on GitHub |
 | Rendering behavior | `citum render` (run locally) | Describe steps; label output unverified |
 
-Schema URL: `https://raw.githubusercontent.com/citum-org/citum-core/main/docs/schemas/style.json`
+Schema URL: `https://docs.citum.org/schemas/style.json`
 
 ## Authoring Workflow
 
@@ -46,8 +46,8 @@ Schema URL: `https://raw.githubusercontent.com/citum-org/citum-core/main/docs/sc
 
 ### External path
 
-1. **Fetch schema:** Load `docs/schemas/style.json`. Field `description` values come from
-   Rust `///` doc comments — they are authoritative.
+1. **Fetch schema:** Load `https://docs.citum.org/schemas/style.json`. Field `description`
+   values come from Rust `///` doc comments — they are authoritative.
 2. **Read examples:** Browse `styles/*.yaml` on GitHub for inheritance patterns.
 3. **Gather requirements:** Confirm style name, citation format, bibliography order, name
    formatting, locators, create/extend/edit mode.

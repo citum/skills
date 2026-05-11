@@ -19,7 +19,7 @@ Works with Claude Code, Cursor, Codex, Cline, and other `skills`-compatible agen
 The `style-authoring` skill has two modes:
 
 - **In-repo** (you have a local citum-core checkout): reads Rust type definitions directly as the authoritative source, then validates with `citum render`.
-- **External**: uses the published JSON Schema at `docs/schemas/style.json`, which embeds doc comments from the Rust source.
+- **External**: uses the published JSON Schema at `https://docs.citum.org/schemas/style.json`, which embeds doc comments from the Rust source.
 
 ### Citum CLI
 
