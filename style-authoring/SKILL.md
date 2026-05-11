@@ -26,8 +26,8 @@ validation pass, or the user explicitly accepts an unverified draft.
 
 | Source | In-repo | External |
 |--------|---------|----------|
-| Field definitions | `crates/citum-schema-style/src/` (Rust types) | `docs/schemas/style.json` (has embedded doc comments) |
-| Behavioral patterns | `styles/*.yaml` examples | `styles/*.yaml` on GitHub |
+| Field definitions | `crates/citum-schema-style/src/` (Rust types) | `https://docs.citum.org/schemas/style.json` (embeds doc comments) |
+| Behavioral patterns | `styles/*.yaml` | [styles/ on GitHub](https://github.com/citum-org/citum-core/tree/main/styles/) |
 | Rendering behavior | `citum render` (run locally) | Describe steps; label output unverified |
 
 Schema URL: `https://docs.citum.org/schemas/style.json`
@@ -48,7 +48,7 @@ Schema URL: `https://docs.citum.org/schemas/style.json`
 
 1. **Fetch schema:** Load `https://docs.citum.org/schemas/style.json`. Field `description`
    values come from Rust `///` doc comments — they are authoritative.
-2. **Read examples:** Browse `styles/*.yaml` on GitHub for inheritance patterns.
+2. **Read examples:** Browse [styles/ on GitHub](https://github.com/citum-org/citum-core/tree/main/styles/) for inheritance patterns.
 3. **Gather requirements:** Confirm style name, citation format, bibliography order, name
    formatting, locators, create/extend/edit mode.
 4. **Draft** using schema-verified fields only. Never invent undocumented keys.
@@ -81,7 +81,7 @@ Do NOT present as final unless schema AND CLI both pass, or user accepts unverif
 ## Schema Discipline
 
 - Never invent undocumented keys, sections, or inheritance mechanisms
-- Prefer copying and adapting patterns from `styles/*.yaml`
+- Prefer copying and adapting patterns from existing styles — see [styles/ on GitHub](https://github.com/citum-org/citum-core/tree/main/styles/) or local `styles/` if in-repo
 - Preserve valid YAML structure and consistent indentation
 - Flag uncertainty when schema support for a requested feature is unknown
 - Prefer minimal valid changes when editing an existing style
@@ -107,7 +107,7 @@ and recommend the user validate locally.
 - Extend existing styles before writing from scratch
 - Set `inherit: <parent-style>` and override only what differs
 - Keep overrides minimal and localized
-- Reference parents: `apa-7th`, `chicago-author-date-18th`, `ieee`, `mla`
+- Common parents: `apa-7th`, `chicago-author-date-18th`, `ieee`, `mla` — fetch from [styles/ on GitHub](https://github.com/citum-org/citum-core/tree/main/styles/) if not in-repo
 
 ## Failure Handling
 
@@ -125,15 +125,15 @@ and recommend the user validate locally.
 
 **Create a numeric style (in-repo):**
 1. Read `crates/citum-schema-style/src/options/` for numeric processing options
-2. Extend `ieee` or `vancouver` from `styles/`
+2. Extend `ieee` or `vancouver` from local `styles/`
 3. CLI validate; return YAML + assumptions
 
 **Extend a style (external):**
-1. Fetch schema; read description fields for allowed fields
-2. Find closest parent in `styles/*.yaml` on GitHub
+1. Fetch `https://docs.citum.org/schemas/style.json`; read description fields for allowed fields
+2. Fetch the closest parent style from [styles/ on GitHub](https://github.com/citum-org/citum-core/tree/main/styles/)
 3. Draft with `inherit:` + minimal overrides; schema-validate; return with unverified note
 
 **Patch a behavior:**
-1. Identify the controlling field(s) from Rust types or schema descriptions
-2. Find usage in `styles/*.yaml` examples
+1. Identify the controlling field(s) from the schema descriptions or Rust types if in-repo
+2. Fetch a representative style from [styles/ on GitHub](https://github.com/citum-org/citum-core/tree/main/styles/) to confirm usage
 3. Draft a minimal override; validate; return with clear assumptions
