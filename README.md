@@ -13,9 +13,6 @@ Works with Claude Code, Cursor, Codex, Cline, and other `skills`-compatible agen
 | Skill | Description | Trigger phrases |
 |-------|-------------|-----------------|
 | `style-authoring` | Author and validate Citum YAML citation styles | "create a style", "author a style", "write a citation style", "edit this style" |
-| `style-evolve` | Route style work: upgrade, migrate, or create | "upgrade this style", "migrate this CSL", "fix this style" |
-| `migrate-research` | Research and repair migration fidelity gaps | "investigate this migration gap", "fix migrate fidelity" |
-| `rust-simplify` | Bounded Rust quality pass | "simplify this Rust", "clean up this crate" |
 
 ## Requirements
 
@@ -31,6 +28,16 @@ In the meantime, install from source:
 
 ```bash
 cargo install --git https://github.com/citum-org/citum-core citum-cli
+```
+
+## Contributor skills
+
+Skills for working on citum-core itself (`style-evolve`, `migrate-research`, `rust-simplify`)
+live in the [citum-core](https://github.com/citum-org/citum-core) repo under `.skills/`.
+Install them locally with:
+
+```bash
+./scripts/install-skills.sh
 ```
 
 ## Links
