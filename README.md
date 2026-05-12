@@ -27,13 +27,13 @@ Full validation requires the `citum` CLI. Publishing to crates.io is coming soon
 In the meantime, install from source:
 
 ```bash
-cargo install --git https://github.com/citum-org/citum-core citum-cli
+cargo install --git https://github.com/citum/citum-core citum-cli
 ```
 
 ## Contributor skills
 
 Skills for working on citum-core itself (`style-evolve`, `migrate-research`, `rust-simplify`)
-live in the [citum-core](https://github.com/citum-org/citum-core) repo under `.skills/`.
+live in the [citum-core](https://github.com/citum/citum-core) repo under `.skills/`.
 Install them locally with:
 
 ```bash
@@ -42,5 +42,5 @@ Install them locally with:
 
 ## Links
 
-- [citum-core](https://github.com/citum-org/citum-core) — the citation engine
+- [citum-core](https://github.com/citum/citum-core) — the citation engine
 - [Citum docs](https://citum.org) — schema, examples, CLI reference
